@@ -57,7 +57,7 @@ const CaptainSignup = () => {
           <div className="flex gap-3">
             <input
               type="text"
-              className="bg-zinc-200 rounded mb-7 px-4 py-2 border border-zinc-300 w-1/2 text-lg placeholder:text-md"
+              className="bg-white rounded-md mb-7 px-4 py-2 border-2 border-gray-300 w-1/2 text-lg placeholder:text-md"
               required
               placeholder="Firstname"
               value={firstName}
@@ -65,7 +65,7 @@ const CaptainSignup = () => {
             />
             <input
               type="text"
-              className="bg-zinc-200 rounded mb-7 px-4 py-2 border border-zinc-300 w-1/2 text-lg placeholder:text-md"
+              className="bg-white rounded-md mb-7 px-4 py-2 border-2 border-gray-300 w-1/2 text-lg placeholder:text-md"
               required
               placeholder="Lastname"
               value={lastName}
@@ -76,7 +76,7 @@ const CaptainSignup = () => {
           <h3 className="text-xl mb-2">Enter email:</h3>
           <input
             type="email"
-            className="bg-zinc-200 rounded mb-7 px-4 py-2 border border-zinc-300 w-full text-lg placeholder:text-lg"
+            className="bg-white rounded-md mb-7 px-4 py-2 border-2 border-gray-300 w-full text-lg placeholder:text-lg"
             required
             placeholder="Enter email"
             value={email}
@@ -86,7 +86,7 @@ const CaptainSignup = () => {
           <h3 className="text-xl mb-2">Enter Password:</h3>
           <input
             type="password"
-            className="bg-zinc-200 rounded mb-7 px-4 py-2 border border-zinc-300 w-full text-lg placeholder:text-lg"
+            className="bg-white rounded-md mb-7 px-4 py-2 border-2 border-gray-300 w-full text-lg placeholder:text-lg"
             required
             placeholder="Enter password"
             value={password}
@@ -97,7 +97,7 @@ const CaptainSignup = () => {
           <div className="flex gap-3">
             <input
               type="text"
-              className="bg-zinc-200 rounded mb-7 px-4 py-2 border border-zinc-300 w-1/2 text-lg placeholder:text-md"
+              className="bg-white rounded-md mb-7 px-4 py-2 border-2 border-gray-300 w-1/2 text-lg placeholder:text-md"
               required
               placeholder="Vehicle Plate"
               value={vehiclePlate}
@@ -105,7 +105,7 @@ const CaptainSignup = () => {
             />
             <input
               type="text"
-              className="bg-zinc-200 rounded mb-7 px-4 py-2 border border-zinc-300 w-1/2 text-lg placeholder:text-md"
+              className="bg-white rounded-md mb-7 px-4 py-2 border-2 border-gray-300 w-1/2 text-lg placeholder:text-md"
               required
               placeholder="Vehicle Capacity"
               value={vehicleCapacity}

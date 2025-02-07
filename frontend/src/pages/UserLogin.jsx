@@ -45,7 +45,7 @@ const UserLogin = () => {
             onChange={(e) => {
               setEmail(e.target.value);
             }}
-            className="bg-zinc-200 rounded mb-7 px-4 py-2 border border-zinc-300 w-full text-lg placeholder:text-lg"
+            className="bg-white rounded-md mb-7 px-4 py-2 border-2 border-gray-300 w-full text-lg placeholder:text-lg"
             required
             placeholder="Enter email"
           />
@@ -57,7 +57,7 @@ const UserLogin = () => {
             onChange={(e) => {
               setPassword(e.target.value);
             }}
-            className="bg-zinc-200 rounded mb-7 px-4 py-2 border border-zinc-300 w-full text-lg placeholder:text-lg"
+            className="bg-white rounded-md mb-7 px-4 py-2 border-2 border-gray-300 w-full text-lg placeholder:text-lg"
             required
             placeholder="Enter password"
           />
