@@ -4,6 +4,7 @@ import CaptainHome from "./pages/CaptainHome";
 import CaptainLogin from "./pages/CaptainLogin";
 import CaptainProtectedWrapper from "./pages/CaptainProtectedWrapper";
 import CaptainSignup from "./pages/CaptainSignup";
+import CaptainLogout from "./pages/CaptainLogout";
 import Home from "./pages/Home";
 import OnBoarding from "./pages/OnBoarding";
 import UserLogin from "./pages/UserLogin";
@@ -44,6 +45,11 @@ const App = () => {
             </CaptainProtectedWrapper>
           }
         />
+        <Route path='/captain/logout' element={
+          <CaptainProtectedWrapper>
+            <CaptainLogout />
+          </CaptainProtectedWrapper>
+        } />
       </Routes>
     </div>
   );
