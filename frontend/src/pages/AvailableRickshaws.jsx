@@ -23,6 +23,12 @@ const AvailableRickshaws = () => {
       number: "MH 47 HG 4949",
       type: "Bajaj Auto Rickshaw",
     },
+    {
+      id: 4,
+      name: "Rajat Rane",
+      number: "MH 47 BQ 2504",
+      type: "Bajaj Auto Rickshaw",
+    },
   ];
   return (
     <div className="h-screen font-UberMoveMedium">
