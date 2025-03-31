@@ -1,7 +1,11 @@
-import React from "react";
+import React, { useContext } from "react";
 import CaptainImage from "../assets/images/CaptainImage.webp";
+import { CaptainDataContext } from "../context/CaptainContext";
 
 function CaptainDetails() {
+
+  const { captain } = useContext(CaptainDataContext);
+
   return (
     <div>
       <div className="flex items-center justify-between">
@@ -11,7 +15,7 @@ function CaptainDetails() {
             src={CaptainImage}
             alt=""
           />
-          <h4 className="text-xl font-medium">Nakul Gohil</h4>
+          <h4 className="text-xl font-medium">{captain.fullname.firstname} {captain.fullname.lastname}</h4>
         </div>
         <div className="mt-5">
           <h4 className="text-xl font-semibold">₹ 1407</h4>
