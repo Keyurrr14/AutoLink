@@ -25,7 +25,7 @@ const ConfirmRide = (props) => {
             </h2>{" "}
             <div>
               <h1 className="text-lg text-black">
-                Darshana Society, Gorai 2, Borivali West, Mumbai-400092
+                {props.selectedLocation || "No location selected"}
               </h1>
             </div>
           </div>

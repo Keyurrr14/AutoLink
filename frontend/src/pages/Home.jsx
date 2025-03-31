@@ -22,7 +22,7 @@ const Home = () => {
   };
 
   const handleLocationSelect = (location) => {
-    setDestination(location);
+    setPickup(location);
     setPanelOpen(false);
     setConfirmRidePanel(true);
   };
@@ -140,7 +140,10 @@ const Home = () => {
           ref={confirmRidePanelRef}
           className="fixed w-full z-10 bottom-0 translate-y-full bg-white px-3 py-6 pt-12"
         >
-          <ConfirmRide setConfirmRidePanel={setConfirmRidePanel} />
+          <ConfirmRide
+            setConfirmRidePanel={setConfirmRidePanel}
+            selectedLocation={pickup}
+          />
         </div>
       </div>
     </div>
