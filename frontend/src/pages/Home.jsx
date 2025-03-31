@@ -5,6 +5,7 @@ import "remixicon/fonts/remixicon.css";
 import map from "../assets/images/map.webp";
 import ConfirmRide from "../components/ConfirmRide";
 import LocationSearchPanel from "../components/LocationSearchPanel";
+import axios from "axios";
 
 const Home = () => {
   const [pickup, setPickup] = useState("");
@@ -14,6 +15,7 @@ const Home = () => {
   const panelCloseRef = useRef(null);
   const confirmRidePanelRef = useRef(null);
   const [confirmRidePanel, setConfirmRidePanel] = useState(false);
+  const [suggestions, setSuggestions] = useState([]);
 
   const submitHandler = async (e) => {
     e.preventDefault();
@@ -23,6 +25,35 @@ const Home = () => {
     setDestination(location);
     setPanelOpen(false);
     setConfirmRidePanel(true);
+  };
+
+  const fetchSuggestions = async (input) => {
+    try {
+      const response = await axios.get(
+        `${import.meta.env.VITE_BASE_URL}/maps/get-suggestions?input=${input}`,
+        {
+          headers: {
+            Authorization: `Bearer ${localStorage.getItem("token")}`,
+          },
+        }
+      );
+      const locations = response.data.map(
+        (prediction) => prediction.description
+      );
+      setSuggestions(locations);
+    } catch (error) {
+      console.error("Error fetching suggestions:", error);
+    }
+  };
+
+  const handleInputChange = (e) => {
+    const value = e.target.value;
+    setPickup(value);
+    if (value.length > 2) {
+      fetchSuggestions(value);
+    } else {
+      setSuggestions([]);
+    }
   };
 
   useGSAP(() => {
@@ -91,7 +122,7 @@ const Home = () => {
               className="w-full px-5 py-4 rounded-md mt-5 border-2 border-gray-300 placeholder:text-xl"
               type="text"
               value={pickup}
-              onChange={(e) => setPickup(e.target.value)}
+              onChange={handleInputChange}
               onClick={() => {
                 setPanelOpen(true);
               }}
@@ -100,7 +131,10 @@ const Home = () => {
           </form>
         </div>
         <div ref={panelRef} className="h-[0%] bg-white">
-          <LocationSearchPanel onLocationSelect={handleLocationSelect} />
+          <LocationSearchPanel
+            locations={suggestions}
+            onLocationSelect={handleLocationSelect}
+          />
         </div>
         <div
           ref={confirmRidePanelRef}
