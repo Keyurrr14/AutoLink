@@ -1,11 +1,13 @@
 import { useGSAP } from "@gsap/react";
 import gsap from "gsap";
-import React, { useRef, useState } from "react";
+import React, { useContext, useEffect, useRef, useState } from "react";
 import "remixicon/fonts/remixicon.css";
 import map from "../assets/images/map.webp";
 import ConfirmRide from "../components/ConfirmRide";
 import LocationSearchPanel from "../components/LocationSearchPanel";
 import axios from "axios";
+import { SocketContext } from "../context/SocketContext";
+import { UserDataContext } from "../context/userContext";
 
 const Home = () => {
   const [pickup, setPickup] = useState("");
@@ -16,6 +18,12 @@ const Home = () => {
   const confirmRidePanelRef = useRef(null);
   const [confirmRidePanel, setConfirmRidePanel] = useState(false);
   const [suggestions, setSuggestions] = useState([]);
+  const { socket } = useContext(SocketContext);
+  const [user] = useContext(UserDataContext);
+
+  useEffect(() => {
+    socket.emit("join", { userType: "user", userId: user._id });
+  }, []);
 
   const submitHandler = async (e) => {
     e.preventDefault();

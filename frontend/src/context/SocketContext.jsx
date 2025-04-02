@@ -16,16 +16,8 @@ const SocketProvider = ({ children }) => {
     return () => {};
   }, []);
 
-  const sendMessage = (eventName, message) => {
-    socket.emit(eventName, message);
-  };
-
-  const recieveMesasge = (eventName, callback) => {
-    socket.on(eventName, callback);
-  };
-
   return (
-    <SocketContext.Provider value={{ sendMessage, recieveMesasge }}>
+    <SocketContext.Provider value={{ socket }}>
       {children}
     </SocketContext.Provider>
   );
